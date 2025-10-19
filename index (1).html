@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Individual Differences in Second Language Acquisition</title>
+    <style>
+        /* Design System Variables */
+        :root {
+            /* Primitive Color Tokens */
+            --color-white: rgba(255, 255, 255, 1);
+            --color-black: rgba(0, 0, 0, 1);
+            --color-cream-50: rgba(252, 252, 249, 1);
+            --color-cream-100: rgba(255, 255, 253, 1);
+            --color-gray-200: rgba(245, 245, 245, 1);
+            --color-gray-300: rgba(167, 169, 169, 1);
+            --color-gray-400: rgba(119, 124, 124, 1);
+            --color-slate-500: rgba(98, 108, 113, 1);
+            --color-brown-600: rgba(94, 82, 64, 1);
+            --color-charcoal-700: rgba(31, 33, 33, 1);
+            --color-charcoal-800: rgba(38, 40, 40, 1);
+            --color-slate-900: rgba(19, 52, 59, 1);
+            --color-teal-300: rgba(50, 184, 198, 1);
+            --color-teal-400: rgba(45, 166, 178, 1);
+            --color-teal-500: rgba(33, 128, 141, 1);
+            --color-teal-600: rgba(29, 116, 128, 1);
+            --color-teal-700: rgba(26, 104, 115, 1);
+            --color-teal-800: rgba(41, 150, 161, 1);
+            --color-red-400: rgba(255, 84, 89, 1);
+            --color-red-500: rgba(192, 21, 47, 1);
+            --color-orange-400: rgba(230, 129, 97, 1);
+            --color-orange-500: rgba(168, 75, 47, 1);
+
+            /* RGB versions for opacity control */
+            --color-brown-600-rgb: 94, 82, 64;
+            --color-teal-500-rgb: 33, 128, 141;
+            --color-slate-900-rgb: 19, 52, 59;
+            --color-slate-500-rgb: 98, 108, 113;
+            --color-red-500-rgb: 192, 21, 47;
+            --color-red-400-rgb: 255, 84, 89;
+            --color-orange-500-rgb: 168, 75, 47;
+            --color-orange-400-rgb: 230, 129, 97;
+
+            /* Background color tokens (Light Mode) */
+            --color-bg-1: rgba(59, 130, 246, 0.08);
+            --color-bg-2: rgba(245, 158, 11, 0.08);
+            --color-bg-3: rgba(34, 197, 94, 0.08);
+            --color-bg-4: rgba(239, 68, 68, 0.08);
+            --color-bg-5: rgba(147, 51, 234, 0.08);
+            --color-bg-6: rgba(249, 115, 22, 0.08);
+            --color-bg-7: rgba(236, 72, 153, 0.08);
+            --color-bg-8: rgba(6, 182, 212, 0.08);
+
+            /* Semantic Color Tokens (Light Mode) */
+            --color-background: var(--color-cream-50);
+            --color-surface: var(--color-cream-100);
+            --color-text: var(--color-slate-900);
+            --color-text-secondary: var(--color-slate-500);
+            --color-primary: var(--color-teal-500);
+            --color-primary-hover: var(--color-teal-600);
+            --color-primary-active: var(--color-teal-700);
+            --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
+            --color-secondary-hover: rgba(var(--color-brown-600-rgb), 0.2);
+            --color-secondary-active: rgba(var(--color-brown-600-rgb), 0.25);
+            --color-border: rgba(var(--color-brown-600-rgb), 0.2);
+            --color-btn-primary-text: var(--color-cream-50);
+            --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
+            --color-card-border-inner: rgba(var(--color-brown-600-rgb), 0.12);
+            --color-error: var(--color-red-500);
+            --color-success: var(--color-teal-500);
+            --color-warning: var(--color-orange-500);
+            --color-info: var(--color-slate-500);
+            --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
+            --color-select-caret: rgba(var(--color-slate-900-rgb), 0.8);
+
+            /* Common style patterns */
+            --focus-ring: 0 0 0 3px var(--color-focus-ring);
+            --focus-outline: 2px solid var(--color-primary);
+            --status-bg-opacity: 0.15;
+            --status-border-opacity: 0.25;
+
+            /* Typography */
+            --font-family-base: "FKGroteskNeue", "Geist", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --font-family-mono: "Berkeley Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            --font-size-xs: 11px;
+            --font-size-sm: 12px;
+            --font-size-base: 14px;
+            --font-size-md: 14px;
+            --font-size-lg: 16px;
+            --font-size-xl: 18px;
+            --font-size-2xl: 20px;
+            --font-size-3xl: 24px;
+            --font-size-4xl: 30px;
+            --font-weight-normal: 400;
+            --font-weight-medium: 500;
+            --font-weight-semibold: 550;
+            --font-weight-bold: 600;
+            --line-height-tight: 1.2;
+            --line-height-normal: 1.5;
+            --letter-spacing-tight: -0.01em;
+
+            /* Spacing */
+            --space-0: 0;
+            --space-1: 1px;
+            --space-2: 2px;
+            --space-4: 4px;
+            --space-6: 6px;
+            --space-8: 8px;
+            --space-10: 10px;
+            --space-12: 12px;
+            --space-16: 16px;
+            --space-20: 20px;
+            --space-24: 24px;
+            --space-32: 32px;
+
+            /* Border Radius */
+            --radius-sm: 6px;
+            --radius-base: 8px;
+            --radius-md: 10px;
+            --radius-lg: 12px;
+            --radius-full: 9999px;
+
+            /* Shadows */
+            --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.02);
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+            --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.15), inset 0 -1px 0 rgba(0, 0, 0, 0.03);
+
+            /* Animation */
+            --duration-fast: 150ms;
+            --duration-normal: 250ms;
+            --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+
+            /* Layout */
+            --container-sm: 640px;
+            --container-md: 768px;
+            --container-lg: 1024px;
+            --container-xl: 1280px;
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family-base);
+            background-color: var(--color-background);
+            color: var(--color-text);
+            line-height: var(--line-height-normal);
+            overflow: hidden;
+        }
+
+        /* Presentation Container */
+        .presentation {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Slide Styles */
+        .slide {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: var(--space-32);
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.5s var(--ease-standard);
+            background: linear-gradient(135deg, var(--color-background) 0%, var(--color-surface) 100%);
+        }
+
+        .slide.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide.prev {
+            transform: translateX(-100%);
+        }
+
+        /* Title Slide */
+        .slide--title {
+            text-align: center;
+        }
+
+        .slide--title h1 {
+            font-size: clamp(var(--font-size-3xl), 4vw, 48px);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-primary);
+            margin-bottom: var(--space-24);
+            line-height: var(--line-height-tight);
+            letter-spacing: var(--letter-spacing-tight);
+        }
+
+        .slide--title h2 {
+            font-size: clamp(var(--font-size-xl), 2.5vw, 24px);
+            font-weight: var(--font-weight-medium);
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-32);
+            max-width: 800px;
+        }
+
+        .presenter-info {
+            margin-top: var(--space-32);
+            padding-top: var(--space-24);
+            border-top: 2px solid var(--color-primary);
+            text-align: center;
+        }
+
+        .presenter-info p {
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--space-8);
+        }
+
+        /* Content Slides */
+        .slide--content {
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: var(--space-24) var(--space-32);
+        }
+
+        .slide--content h1 {
+            font-size: clamp(var(--font-size-2xl), 3vw, 36px);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-primary);
+            margin-bottom: var(--space-24);
+            text-align: center;
+            width: 100%;
+            border-bottom: 3px solid var(--color-primary);
+            padding-bottom: var(--space-16);
+        }
+
+        .content-body {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow-y: auto;
+            padding-right: var(--space-16);
+        }
+
+        .content-section {
+            margin-bottom: var(--space-24);
+        }
+
+        .content-section h3 {
+            font-size: var(--font-size-xl);
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-teal-700);
+            margin-bottom: var(--space-12);
+            padding-left: var(--space-16);
+            border-left: 4px solid var(--color-primary);
+        }
+
+        .content-section p {
+            font-size: var(--font-size-base);
+            line-height: var(--line-height-normal);
+            margin-bottom: var(--space-12);
+            color: var(--color-text);
+        }
+
+        .bullet-list {
+            list-style: none;
+            padding: 0;
+            margin: var(--space-12) 0;
+        }
+
+        .bullet-list li {
+            position: relative;
+            padding-left: var(--space-24);
+            margin-bottom: var(--space-8);
+            font-size: var(--font-size-base);
+            line-height: var(--line-height-normal);
+        }
+
+        .bullet-list li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--color-primary);
+            font-weight: var(--font-weight-bold);
+            font-size: var(--font-size-lg);
+        }
+
+        .bullet-list .sub-list {
+            margin: var(--space-8) 0;
+            padding-left: var(--space-16);
+        }
+
+        .bullet-list .sub-list li:before {
+            content: "◦";
+            color: var(--color-text-secondary);
+        }
+
+        /* Agenda Styles */
+        .agenda-section {
+            background-color: var(--color-bg-1);
+            border-radius: var(--radius-lg);
+            padding: var(--space-20);
+            margin: var(--space-16) 0;
+            border-left: 4px solid var(--color-primary);
+        }
+
+        /* References Slide */
+        .references-list {
+            list-style: none;
+            padding: 0;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .references-list li {
+            background-color: var(--color-surface);
+            border-radius: var(--radius-base);
+            padding: var(--space-16);
+            margin-bottom: var(--space-16);
+            border-left: 4px solid var(--color-primary);
+            font-size: var(--font-size-base);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* Q&A Slide */
+        .slide--qa {
+            text-align: center;
+        }
+
+        .slide--qa h1 {
+            font-size: clamp(var(--font-size-4xl), 5vw, 60px);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-primary);
+            margin-bottom: var(--space-16);
+        }
+
+        .slide--qa h2 {
+            font-size: clamp(var(--font-size-2xl), 3vw, 32px);
+            font-weight: var(--font-weight-medium);
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-32);
+        }
+
+        .contact-info {
+            font-size: var(--font-size-lg);
+            color: var(--color-text);
+            padding: var(--space-16);
+            background-color: var(--color-bg-1);
+            border-radius: var(--radius-base);
+            display: inline-block;
+        }
+
+        /* Navigation */
+        .nav-controls {
+            position: fixed;
+            bottom: var(--space-32);
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: var(--space-16);
+            z-index: 1000;
+        }
+
+        .nav-btn {
+            background-color: var(--color-primary);
+            color: var(--color-btn-primary-text);
+            border: none;
+            border-radius: var(--radius-full);
+            padding: var(--space-12) var(--space-24);
+            font-size: var(--font-size-base);
+            font-weight: var(--font-weight-medium);
+            cursor: pointer;
+            transition: all var(--duration-normal) var(--ease-standard);
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-btn:hover {
+            background-color: var(--color-primary-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .nav-btn:disabled {
+            background-color: var(--color-text-secondary);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .slide-counter {
+            background-color: var(--color-surface);
+            color: var(--color-text);
+            padding: var(--space-8) var(--space-16);
+            border-radius: var(--radius-full);
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-medium);
+            border: 1px solid var(--color-border);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .slide {
+                padding: var(--space-16);
+            }
+
+            .slide--content {
+                padding: var(--space-16);
+            }
+
+            .content-body {
+                padding-right: var(--space-8);
+            }
+
+            .nav-controls {
+                bottom: var(--space-16);
+                padding: 0 var(--space-16);
+                width: calc(100% - var(--space-32));
+                max-width: none;
+            }
+
+            .bullet-list li {
+                font-size: var(--font-size-sm);
+            }
+        }
+
+        /* Scrollbar Styling */
+        .content-body::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .content-body::-webkit-scrollbar-track {
+            background: var(--color-secondary);
+            border-radius: var(--radius-sm);
+        }
+
+        .content-body::-webkit-scrollbar-thumb {
+            background: var(--color-primary);
+            border-radius: var(--radius-sm);
+        }
+
+        .content-body::-webkit-scrollbar-thumb:hover {
+            background: var(--color-primary-hover);
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation">
+        <!-- Slide 1: Title Slide -->
+        <div class="slide slide--title active" data-slide="1">
+            <h1>Individual Differences in Second Language Acquisition</h1>
+            <h2>A Review of Key Cognitive, Affective, and Developmental Factors</h2>
+            <div class="presenter-info">
+                <p><strong>[Your Name]</strong></p>
+                <p>PhD Student, Applied Linguistics Program, [Your University Name]</p>
+            </div>
+        </div>
+
+        <!-- Slide 2: Introduction & Agenda -->
+        <div class="slide slide--content" data-slide="2">
+            <h1>Introduction &amp; Agenda</h1>
+            <div class="content-body">
+                <div class="content-section">
+                    <h3>Introduction</h3>
+                    <p>The purpose of this presentation is to provide a structured overview of the primary individual differences (IDs) that account for the significant variation in success among second language learners.</p>
+                    <p>Individual Differences are defined as "dimensions of enduring personal characteristics that are assumed to apply to everybody and on which people differ by degree" (Dörnyei, 2005, p. 4). These are stable and systematic deviations from a normative blueprint.</p>
+                </div>
+                
+                <div class="content-section agenda-section">
+                    <h3>Agenda</h3>
+                    <ul class="bullet-list">
+                        <li>Age Effects: The Critical Period Hypothesis</li>
+                        <li>Cognitive Differences: Aptitude, Styles, and Strategies</li>
+                        <li>Personality Factors: Extroversion, Anxiety, and Self-Esteem</li>
+                        <li>Motivational Factors: Integrative, Instrumental, Intrinsic, &amp; Extrinsic</li>
+                        <li>Conclusion &amp; Pedagogical Implications</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: The Critical Period Hypothesis (CPH) -->
+        <div class="slide slide--content" data-slide="3">
+            <h1>The Critical Period Hypothesis (CPH)</h1>
+            <div class="content-body">
+                <div class="content-section">
+                    <h3>Core Concept</h3>
+                    <p>The hypothesis that there is a biologically determined period in early life during which language acquisition is possible. After this period, the brain loses its plasticity for this function.</p>
+                </div>
+                
+                <div class="content-section">
+                    <h3>Key Figure</h3>
+                    <p>Eric Lenneberg, Biological Foundations of Language (1967)</p>
+                </div>
+                
+                <div class="content-section">
+                    <h3>Primary Evidence (Lenneberg, 1967, Ch. 4)</h3>
+                    <ul class="bullet-list">
+                        <li><strong>Brain Plasticity &amp; Lateralization:</strong> Language functions specialize in the left hemisphere during childhood. This process solidifies at puberty, leading to a "termination of a state of organizational plasticity" (p. 176). The brain loses its flexibility to reorganize and transfer functions to the opposite hemisphere.</li>
+                        <li><strong>Recovery from Aphasia:</strong> Children who suffer brain trauma and subsequent language loss show a much higher rate of full recovery compared to adults. For adults, aphasic symptoms not resolved within about five months are typically irreversible (p. 143). This suggests a time-locked capacity for language restitution.</li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <h3>CPH Effects</h3>
+                    <p>Lenneberg's work suggests the critical period has its strongest effect on acquiring native-like pronunciation (accent) but also affects the automatic acquisition of grammar. Vocabulary learning appears less constrained by age.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Age of Acquisition (AoA) Effects -->
+        <div class="slide slide--content" data-slide="4">
+            <h1>Age of Acquisition (AoA) Effects</h1>
+            <div class="content-body">
+                <div class="content-section">
+                    <h3>Distinction from CPH</h3>
+                    <p>While a strict, absolute critical period is debated, there is strong evidence for Age of Acquisition effects, where a younger starting age correlates with higher ultimate attainment, especially in naturalistic immersion settings.</p>
+                </div>
+                
+                <div class="content-section">
+                    <h3>Maturational Constraints (Lenneberg, 1967)</h3>
+                    <ul class="bullet-list">
+                        <li>After puberty, the brain's ability for "self-organization and adjustment to the physiological demands of verbal behavior quickly declines" (p. 176). This inhibits the automatic, effortless acquisition of language from mere environmental exposure.</li>
+                        <li>This biological schedule makes primary language learning difficult after the early teens, even in individuals with developmental delays (e.g., mongolism) who often cease making progress in language at this time (p. 155).</li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <h3>Social Context Perspective (Saville-Troike &amp; Barto, 2016, p. 132)</h3>
+                    <ul class="bullet-list">
+                        <li>Age is not only a biological factor but also a social category.</li>
+                        <li>The circumstances of learning differ significantly by age:
+                            <ul class="sub-list">
+                                <li>Younger learners are more likely to acquire an L2 in naturalistic, highly contextualized situations (e.g., play).</li>
+                                <li>Older learners are more likely to learn in formal, decontextualized academic settings that focus on explicit rules.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Language Aptitude -->
+        <div class="slide slide--content" data-slide="5">
+            <h1>Language Aptitude</h1>
+            <div class="content-body">
+                <div class="content-section">
+                    <h3>Definition</h3>
+                    <p>A specific cognitive "talent" for learning a second language, largely independent of general intelligence, that predicts the rate of progress the individual is likely to make "under optimal conditions" (Carroll, as cited in Dörnyei, 2005, p. 43).</p>
+                </div>
+                
+                <div class="content-section">
+                    <h3>Key Figure</h3>
+                    <p>John Carroll</p>
+                </div>
+                
+                <div class="content-section">
+                    <h3>Carroll's Four Components of Aptitude (Dörnyei, 2005, p. 39)</h3>
+                    <ul class="bullet-list">
+                        <li><strong>Phonetic Coding Ability:</strong> The ability to identify, code, and remember new sounds.</li>
+                        <li><strong>Grammatical Sensitivity:</strong> The ability to recognize the grammatical functions of words in sentences.</li>
+                        <li><strong>Rote Learning Ability:</strong> The ability to learn and retain associations between sounds and meanings quickly and efficiently.</li>
+                        <li><strong>Inductive Language Learning Ability:</strong> The ability to infer or induce grammatical rules from language samples.</li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <h3>Significance</h3>
+                    <p>Language aptitude is one of the most consistent predictors of success in formal language learning contexts (Gardner, 1985, p. 37; Dörnyei, 2005, p. 31).</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Other Cognitive Factors -->
+        <div class="slide slide--content" data-slide="6">
+            <h1>Other Cognitive Factors</h1>
+            <div class="content-body">
+                <div class="content-section">
+                    <h3>Learning Styles</h3>
+                    <p>An individual's "natural, habitual, and preferred way(s) of absorbing, processing, and retaining new information and skills" (Reid, as cited in Dörnyei, 2005, p. 121).</p>
+                    <p><strong>Example: Field Dependence/Independence</strong></p>
+                    <ul class="bullet-list">
+                        <li>Field-independent learners can easily separate details from a distracting background ("see the trees in the forest"). This analytic style may help with formal grammar learning.</li>
+                        <li>Field-dependent learners perceive the whole field and have a more social orientation, which may aid communicative fluency (Dörnyei, 2005, p. 137).</li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <h3>Learning Strategies</h3>
+                    <p>"Learning processes which are consciously selected by the learner" (Cohen, as cited in Dörnyei, 2005, p. 162).</p>
+                    <ul class="bullet-list">
+                        <li>Examples: Using mnemonic devices, summarizing new information, consciously seeking out practice opportunities, planning study time.</li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <h3>Multiple Intelligences (Howard Gardner)</h3>
+                    <ul class="bullet-list">
+                        <li>This theory posits that intelligence is not a single entity but a composite of distinct abilities (e.g., linguistic, logical-mathematical, spatial, musical).</li>
+                        <li>Language aptitude can be seen as a specific combination of these intelligences relevant to language learning (Dörnyei, 2005, p. 33).</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Key Personality Traits -->
+        <div class="slide slide--content" data-slide="7">
+            <h1>Key Personality Traits</h1>
+            <div class="content-body">
+                <div class="content-section">
+                    <h3>Overview</h3>
+                    <p>Personality represents "those characteristics of the person that account for consistent patterns of feeling, thinking, and behaving" (Pervin &amp; John, as cited in Dörnyei, 2005, p. 11). Research on its direct link to L2 success is often mixed, suggesting an indirect role (Gardner, 1985, p. 37).</p>
+                </div>
+                
+                <div class="content-section">
+                    <h3>Extroversion vs. Introversion</h3>
+                    <ul class="bullet-list">
+                        <li><strong>No Clear Winner:</strong> Research findings are inconsistent.</li>
+                        <li>Extroverts are often found to be more fluent, more talkative, and use fewer pauses.</li>
+                        <li>Introverts may be more accurate, use more careful grammatical constructions, and have better study habits (Dörnyei, 2005, pp. 25, 27).</li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <h3>Anxiety</h3>
+                    <ul class="bullet-list">
+                        <li><strong>Language Anxiety:</strong> A situation-specific anxiety distinct from a general anxious personality trait (Dörnyei, 2005, p. 199). It is one of the strongest negative predictors of success.</li>
+                        <li><strong>Debilitative vs. Facilitative:</strong> While high anxiety is harmful (debilitative), a small amount can sometimes motivate a learner to try harder (facilitative) (Gardner, 1985, p. 33).</li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <h3>Self-Esteem &amp; Risk-Taking</h3>
+                    <ul class="bullet-list">
+                        <li><strong>Self-Esteem:</strong> A person's overall self-appraisal. Higher self-esteem is linked to greater persistence in the face of failure (Dörnyei, 2005, p. 212).</li>
+                        <li><strong>Risk-Taking:</strong> The willingness to use the L2 with the knowledge that errors are possible. Essential for developing communicative fluency.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Gardner's Socio-Educational Model of Motivation -->
+        <div class="slide slide--content" data-slide="8">
+            <h1>Gardner's Socio-Educational Model of Motivation</h1>
+            <div class="content-body">
+                <div class="content-section">
+                    <h3>Key Figure</h3>
+                    <p>Robert Gardner</p>
+                </div>
+                
+                <div class="content-section">
+                    <h3>Core Principle</h3>
+                    <p>L2 learning is fundamentally a social-psychological phenomenon. Therefore, "students' attitudes toward the specific language group are bound to influence how successful they will be in incorporating aspects of that language" (Gardner, 1985, p. 6).</p>
+                </div>
+                
+                <div class="content-section">
+                    <h3>The Key Motivational Dichotomy</h3>
+                    <ul class="bullet-list">
+                        <li><strong>Integrative Orientation:</strong> A desire to learn a language to interact with, and identify with, members of the L2 community. It reflects a "willingness to be like valued members of the language community" (Gardner &amp; Lambert, as cited in Gardner, 1985, p. 59).</li>
+                        <li><strong>Instrumental Orientation:</strong> Learning a language for pragmatic or utilitarian reasons, emphasizing the "practical value and advantages of learning a new language" (Lambert, as cited in Gardner, 1985, p. 133).</li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <h3>The Integrative Motive</h3>
+                    <p>This is Gardner's broader theoretical construct, defined as the combination of three components:</p>
+                    <ul class="bullet-list">
+                        <li>Integrativeness (positive attitudes toward the L2 group and an integrative orientation)</li>
+                        <li>Motivation (effort, desire, and positive attitudes toward learning)</li>
+                        <li>Positive Attitudes toward the Learning Situation (teacher and course)<br>(Gardner, 1985, p. 54; Dörnyei, 2005, p. 68)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: Cognitive & Process-Oriented Views of Motivation -->
+        <div class="slide slide--content" data-slide="9">
+            <h1>Cognitive &amp; Process-Oriented Views of Motivation</h1>
+            <div class="content-body">
+                <div class="content-section">
+                    <h3>Self-Determination Theory (Dörnyei, 2005, p. 76)</h3>
+                    <p>This theory provides a cognitive perspective on motivation, distinguishing between:</p>
+                    <ul class="bullet-list">
+                        <li><strong>Intrinsic Motivation:</strong> The drive to learn for its own sake, for the "feelings associated with exploring new ideas and acquiring knowledge" (Noels et al., as cited in Dörnyei, 2005, p. 78).</li>
+                        <li><strong>Extrinsic Motivation:</strong> The drive to learn because of external rewards or pressures (e.g., to get good grades, please a parent, or fulfill a requirement). This aligns closely with instrumental motivation.</li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <h3>Motivation as a Dynamic Process (Dörnyei, 2005, p. 84)</h3>
+                    <p>Motivation is not a static trait but changes over time. This process can be viewed in three key stages:</p>
+                    <ul class="bullet-list">
+                        <li><strong>Choice Motivation (Pre-actional):</strong> The process of getting started, forming intentions, and setting goals.</li>
+                        <li><strong>Executive Motivation (Actional):</strong> The process of sustaining effort and staying on task by using "action control" or "self-regulatory" strategies.</li>
+                        <li><strong>Motivational Retrospection (Post-actional):</strong> The process of evaluating the experience and forming causal attributions, which in turn influences future motivation.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Conclusion & Implications -->
+        <div class="slide slide--content" data-slide="10">
+            <h1>Conclusion &amp; Implications</h1>
+            <div class="content-body">
+                <div class="content-section">
+                    <h3>Summary of Key Differences</h3>
+                    <ul class="bullet-list">
+                        <li><strong>Age:</strong> A biological factor that constrains ultimate attainment, particularly pronunciation, by limiting neural plasticity (Lenneberg, 1967, p. 176).</li>
+                        <li><strong>Cognition (Aptitude):</strong> A strong predictor of the rate of learning, especially in formal, instructed settings (Gardner, 1985, p. 37; Dörnyei, 2005, p. 31).</li>
+                        <li><strong>Personality:</strong> Affective factors like anxiety play a significant mediating role, often indirectly influencing motivation and risk-taking (Dörnyei, 2005, p. 24).</li>
+                        <li><strong>Motivation:</strong> The primary "engine" of L2 learning, providing the initial impetus and the drive to sustain the long-term effort required (Gardner, 1985, p. 10).</li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <h3>The Interacting Nature of IDs</h3>
+                    <p>No single factor determines success. Motivation can "override the aptitude effect" and make up for deficiencies in aptitude, while high aptitude may not be realized without sufficient motivation (Gardner &amp; Lambert, as cited in Dörnyei, 2005, p. 65).</p>
+                </div>
+                
+                <div class="content-section">
+                    <h3>Pedagogical Implications for the Saudi Context</h3>
+                    <ul class="bullet-list">
+                        <li><strong>Anxiety Reduction:</strong> Instructors should create a supportive, low-anxiety classroom environment where students feel comfortable taking risks.</li>
+                        <li><strong>Motivation Enhancement:</strong> Highlight both instrumental benefits of English (its role in global commerce, technology, and academia) and integrative reasons (understanding other cultures, international travel). For Arabic learners, emphasize integrative goals related to shared religious and cultural identity.</li>
+                        <li><strong>Strategy Training:</strong> Explicitly teach effective learning strategies to help learners with diverse aptitude profiles become more successful and autonomous (Dörnyei, 2005, Ch. 6).</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 11: References -->
+        <div class="slide slide--content" data-slide="11">
+            <h1>References</h1>
+            <div class="content-body">
+                <ul class="references-list">
+                    <li>Dörnyei, Z. (2005). The psychology of the language learner: Individual differences in second language acquisition. Lawrence Erlbaum Associates.</li>
+                    <li>Gardner, R. C. (1985). Social psychology and second language learning: The role of attitudes and motivation. Edward Arnold.</li>
+                    <li>Lenneberg, E. H. (1967). Biological foundations of language. John Wiley &amp; Sons.</li>
+                    <li>Saville-Troike, M., &amp; Barto, K. (2016). Introducing second language acquisition (Chapter 5, "Social contexts of SLA"). Cambridge University Press.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 12: Q&A -->
+        <div class="slide slide--qa" data-slide="12">
+            <h1>Thank You</h1>
+            <h2>Questions &amp; Answers</h2>
+            <div class="contact-info">
+                <strong>[Your Name &amp; Email Address]</strong>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Controls -->
+    <div class="nav-controls">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">Previous</button>
+        <span class="slide-counter">
+            <span id="currentSlide">1</span> / <span id="totalSlides">12</span>
+        </span>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next</button>
+    </div>
+
+    <script>
+        let currentSlideIndex = 1;
+        const totalSlides = 12;
+
+        function showSlide(slideNumber) {
+            // Hide all slides
+            const slides = document.querySelectorAll('.slide');
+            slides.forEach(slide => {
+                slide.classList.remove('active', 'prev');
+            });
+
+            // Show current slide
+            const currentSlide = document.querySelector(`[data-slide="${slideNumber}"]`);
+            if (currentSlide) {
+                currentSlide.classList.add('active');
+            }
+
+            // Update counter
+            document.getElementById('currentSlide').textContent = slideNumber;
+
+            // Update navigation buttons
+            document.getElementById('prevBtn').disabled = slideNumber === 1;
+            document.getElementById('nextBtn').disabled = slideNumber === totalSlides;
+
+            // Scroll content to top for content slides
+            const contentBody = currentSlide.querySelector('.content-body');
+            if (contentBody) {
+                contentBody.scrollTop = 0;
+            }
+        }
+
+        function changeSlide(direction) {
+            const newSlideIndex = currentSlideIndex + direction;
+            
+            if (newSlideIndex >= 1 && newSlideIndex <= totalSlides) {
+                currentSlideIndex = newSlideIndex;
+                showSlide(currentSlideIndex);
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowRight' || event.key === ' ') {
+                event.preventDefault();
+                changeSlide(1);
+            } else if (event.key === 'ArrowLeft') {
+                event.preventDefault();
+                changeSlide(-1);
+            } else if (event.key >= '1' && event.key <= '9') {
+                const slideNumber = parseInt(event.key);
+                if (slideNumber <= totalSlides) {
+                    currentSlideIndex = slideNumber;
+                    showSlide(currentSlideIndex);
+                }
+            }
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('totalSlides').textContent = totalSlides;
+            showSlide(1);
+        });
+
+        // Touch/swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', function(event) {
+            touchStartX = event.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', function(event) {
+            touchEndX = event.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const swipeDistance = touchEndX - touchStartX;
+            
+            if (Math.abs(swipeDistance) > swipeThreshold) {
+                if (swipeDistance > 0) {
+                    // Swipe right - previous slide
+                    changeSlide(-1);
+                } else {
+                    // Swipe left - next slide
+                    changeSlide(1);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
